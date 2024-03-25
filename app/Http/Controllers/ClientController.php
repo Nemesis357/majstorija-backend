@@ -13,8 +13,7 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         return Client::select(
             'id', 
             'name', 
@@ -27,7 +26,9 @@ class ClientController extends Controller
     }
 
     public function getClientById($id) {
-        
+        $client = Client::find($id);
+
+        return $client;
     }
 
     /**
@@ -58,6 +59,7 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Client $client) {
+        var_dump($client);
         return $client;
     }
 

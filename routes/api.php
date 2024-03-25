@@ -22,9 +22,9 @@ use App\Http\Controllers\CustomAuthController;
 Route::group(['middleware' => ['auth:sanctum']], function() {
     // Route::resource('client-edit', ClientEditController::class);
     Route::post('/logout', [CustomAuthController::class, 'logout']);
-    Route::get('/clients/{id}', [ClientController::class, 'show']);
 });
 // Public routes
+Route::get('/clients/{id}', [ClientController::class, 'getClientById']);
 Route::resource('clients', ClientController::class);
 Route::post('/register', [CustomAuthController::class, 'customRegistration']);
 Route::get('/dashboard', [CustomAuthController::class, 'dashboard']);
